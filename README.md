@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/ngons/p5js.paper/main/public/splash.png" alt="p5.paper splash image" width="600px" />
+  <img src="https://raw.githubusercontent.com/moriyuzan/p5js.paper/main/public/splash.png" alt="p5.paper splash image" width="600px" />
   <br>
   A high-performance WebGL post-processing library for authentic paper textures in p5.js.
   <br>
