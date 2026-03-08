@@ -4,11 +4,24 @@ let drawBuffer;
 let paper;
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(1600, 1200);
   drawBuffer = createGraphics(width, height);
   drawBuffer.background('#f4f1ea');
 
   paper = new p5Paper(width, height);
+
+  // Load default paper texture from public/paper-tex.png
+  loadImage('paper-tex.png', (img) => {
+    paper.setCustomTexture(img);
+  });
+
+  document.getElementById('texSlider').value = 0.05;
+  document.getElementById('gritSlider').value = 0.10;
+  document.getElementById('grainSlider').value = 0.05;
+  document.getElementById('vigSlider').value = 0.26;
+  document.getElementById('bleedSlider').value = 0.001;
+  document.getElementById('imgTexSlider').value = 0.50;
+  document.getElementById('imgScaleSlider').value = 1.6;
 
   document.getElementById('imageUpload').addEventListener('change', function (e) {
     const file = e.target.files[0];
