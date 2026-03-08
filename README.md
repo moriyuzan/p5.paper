@@ -1,8 +1,8 @@
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ngons/p5js.paper/main/public/splash.png" alt="p5.paper splash image" width="600px" />
-  *A high-performance WebGL post-processing library for authentic paper textures in p5.js.*
-  
+  <br>
+  A high-performance WebGL post-processing library for authentic paper textures in p5.js.
   <br>
 
   [![npm version](https://badge.fury.io/js/p5.paper.svg)](https://www.npmjs.com/package/p5.paper)
