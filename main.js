@@ -77,8 +77,8 @@ function drawSimulatedInk(x, y, px, py) {
 }
 
 function keyPressed() {
-  if (key === ' ') {
-    drawBuffer.background('#f4f1ea');
+  if (key === 'p') {
+    drawBuffer.background('#ffffff');
   }
 }
 

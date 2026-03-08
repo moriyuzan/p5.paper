@@ -1,16 +1,41 @@
 {
   "name": "p5.paper",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "type": "module",
   "description": "A p5.js shader library for realistic paper textures, grain, color bleed, and blemishes.",
-  "license": "MIT",
+  "main": "./dist/p5.paper.umd.js",
+  "module": "./dist/p5.paper.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/p5.paper.es.js",
+      "require": "./dist/p5.paper.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
+  "peerDependencies": {
+    "p5": "^1.9.0"
+  },
   "devDependencies": {
     "vite": "^5.0.0",
     "vite-plugin-glsl": "^1.3.0"
-  }
+  },
+  "keywords": [
+    "p5",
+    "p5.js",
+    "creative-coding",
+    "shader",
+    "texture",
+    "paper",
+    "post-processing",
+    "generative-art"
+  ],
+  "author": "Thai(Mori Yuzan)",
+  "license": "MIT"
 }
