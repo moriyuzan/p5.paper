@@ -47,7 +47,8 @@ function draw() {
     vignette: parseFloat(document.getElementById('vigSlider').value),
     bleed: parseFloat(document.getElementById('bleedSlider').value),
     imgTex: parseFloat(document.getElementById('imgTexSlider').value),
-    imgScale: parseFloat(document.getElementById('imgScaleSlider').value)
+    imgScale: parseFloat(document.getElementById('imgScaleSlider').value),
+    blendMode: parseInt(document.getElementById('blendMode').value)
   };
 
   document.getElementById('texVal').innerText = params.tex.toFixed(2);

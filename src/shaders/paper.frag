@@ -14,6 +14,8 @@ uniform sampler2D u_image_tex;
 uniform bool u_has_image_tex;
 uniform float u_img_tex_amount;
 uniform float u_img_tex_scale;
+uniform int u_blend_mode; 
+
 
 float random(vec2 st) {
     return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
@@ -53,16 +55,19 @@ void main() {
     
     // 2. CUSTOM IMAGE TEXTURE (Seamless)
     if (u_has_image_tex) {
-        // Use fract() to make the image tile endlessly
         vec2 tileUV = fract(uv * u_img_tex_scale);
-        
-        // Sample the uploaded texture
         vec4 imgColor = texture2D(u_image_tex, tileUV);
         
-        // Assuming it's a black/white height map: Black = deep grooves, White = flat paper.
-        // We subtract the darkness from the main canvas color.
-        float darkness = 1.0 - imgColor.r; 
-        color.rgb -= (darkness * u_img_tex_amount);
+        if (u_blend_mode == 0) {
+            vec3 multiplyColor = color.rgb * imgColor.rgb;
+            color.rgb = mix(color.rgb, multiplyColor, u_img_tex_amount);
+        } else if (u_blend_mode == 1) {
+            vec3 lightenColor = max(color.rgb, imgColor.rgb);
+            color.rgb = mix(color.rgb, lightenColor, u_img_tex_amount);
+        } else if (u_blend_mode == 2) {
+            float darkness = 1.0 - imgColor.r; 
+            color.rgb -= (darkness * u_img_tex_amount);
+        }
     }
 
     // 3. PROCEDURAL GROOVES

@@ -31,6 +31,7 @@ class p5Paper {
       this.paperShader.setUniform('u_image_tex', this.customImageMap);
       this.paperShader.setUniform('u_img_tex_amount', params.imgTex);
       this.paperShader.setUniform('u_img_tex_scale', params.imgScale);
+      this.paperShader.setUniform('u_blend_mode', params.blendMode);
     } else {
       this.paperShader.setUniform('u_has_image_tex', false);
     }

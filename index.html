@@ -67,6 +67,13 @@
         <label>Custom Seamless Image Map:</label>
         <input type="file" id="imageUpload" class="upload-btn" accept="image/*">
 
+        <label for="blendMode">Image Blend Mode:</label>
+            <select id="blendMode">
+                <option value="0">Multiply (Darkens)</option>
+                <option value="1">Lighten (Brightens)</option>
+                <option value="2">Heightmap (Original Grooves)</option>
+            </select>
+
         <label for="imgTexSlider">Image Texture Intensity: <span id="imgTexVal">0.50</span></label>
         <input type="range" id="imgTexSlider" min="0" max="1.0" step="0.01" value="0.50">
 
