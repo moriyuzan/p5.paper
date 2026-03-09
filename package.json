@@ -1,6 +1,6 @@
 {
   "name": "p5.paper",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "type": "module",
   "description": "A p5.js shader library for realistic paper textures, grain, color bleed, and blemishes.",
   "main": "./dist/p5.paper.umd.js",

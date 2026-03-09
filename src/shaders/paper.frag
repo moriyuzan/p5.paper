@@ -67,7 +67,28 @@ void main() {
         } else if (u_blend_mode == 2) {
             float darkness = 1.0 - imgColor.r; 
             color.rgb -= (darkness * u_img_tex_amount);
+        } else if (u_blend_mode == 3) {
+            // OVERLAY: Multiplies darks, screens lights
+            vec3 overlayColor = mix(
+                2.0 * color.rgb * imgColor.rgb,
+                1.0 - 2.0 * (1.0 - color.rgb) * (1.0 - imgColor.rgb),
+                step(0.5, color.rgb)
+            );
+            color.rgb = mix(color.rgb, overlayColor, u_img_tex_amount);
+        } else if (u_blend_mode == 4) {
+            // SCREEN: Inverts, multiplies, and inverts again
+            vec3 screenColor = 1.0 - (1.0 - color.rgb) * (1.0 - imgColor.rgb);
+            color.rgb = mix(color.rgb, screenColor, u_img_tex_amount);
+        } else if (u_blend_mode == 5) {
+            // DARKEN: Keeps the darkest pixels
+            vec3 darkenColor = min(color.rgb, imgColor.rgb);
+            color.rgb = mix(color.rgb, darkenColor, u_img_tex_amount);
+        } else if (u_blend_mode == 6) {
+            // DIFFERENCE: Subtracts and takes absolute value
+            vec3 diffColor = abs(color.rgb - imgColor.rgb);
+            color.rgb = mix(color.rgb, diffColor, u_img_tex_amount);
         }
+        // --- NEW BLEND MODES END ---
     }
 
     // 3. PROCEDURAL GROOVES
