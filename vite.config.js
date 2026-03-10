@@ -8,6 +8,7 @@ export default defineConfig({
       include: /\.(glsl|wgsl|vert|frag)$/i
     })
   ],
+  publicDir: false,
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.js'),

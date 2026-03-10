@@ -20,7 +20,23 @@ This repo currently contains:
 * GLSL shaders in `src/shaders/paper.vert` and `src/shaders/paper.frag`
 * A Vite-powered demo sketch using `main.js` and `index.html`
 
+## Demo
+
+[Try the demo on OpenProcessing!](https://openprocessing.org/sketch/2890331)
+
 ## Development
+
+**Using a CDN (Quick Setup):**
+
+You can easily include the library without downloading or installing anything by adding a CDN link directly to your HTML `<head>`:
+
+```html
+<!-- Using jsDelivr -->
+<script src="https://cdn.jsdelivr.net/npm/p5.paper"></script>
+
+<!-- OR using unpkg -->
+<script src="https://unpkg.com/p5.paper"></script>
+```
 
 Install dependencies and run the local demo server:
 
@@ -66,7 +82,7 @@ Here is a complete, working example:
     <meta charset="UTF-8">
     <title>My p5.paper Sketch</title>
     <!-- 1. Load p5.js first -->
-    <script src="[https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js](https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js)"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
     <!-- 2. Load the p5.paper UMD file -->
     <script src="./dist/p5.paper.umd.js"></script>
   </head>
@@ -111,3 +127,27 @@ Here is a complete, working example:
   </body>
 </html>
 ```
+
+## Blend Modes
+
+The paper shader exposes multiple blend modes via the `u_blend_mode` uniform when combining the source image with a custom image texture:
+
+- **0 – Multiply**: Multiplies the source and image colors (`color * imgColor`).
+- **1 – Lighten**: Keeps the lighter value of each channel (`max(color, imgColor)`).
+- **2 – Subtractive Darken**: Darkens based on the inverse of the image’s red channel.
+- **3 – Overlay**: Multiplies dark areas and screens light areas (classic overlay blend).
+- **4 – Screen**: Inverts, multiplies, then inverts again (screen blend).
+- **5 – Darken**: Keeps the darkest value of each channel (`min(color, imgColor)`).
+- **6 – Difference**: Uses the absolute difference between source and image colors.
+
+## Effects
+
+p5.paper exposes the following post-processing effects, controlled via the `params` object passed to `paper.apply`:
+
+- **`tex` – Procedural grooves**: Simulated paper fibers / grooves.
+- **`grit` – Grittiness / blemishes**: Dirt, specks, and surface imperfections.
+- **`grain` – Micro grain**: Fine-grain noise over the image.
+- **`vignette` – Vignette**: Edge darkening from the center outward.
+- **`bleed` – Color bleed**: Chromatic/color bleed effect on edges.
+- **`imgTex` – Image texture intensity**: Strength of the custom seamless image map.
+- **`imgScale` – Image tiling scale**: Tiling scale of the custom image map.

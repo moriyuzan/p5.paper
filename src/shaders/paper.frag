@@ -88,7 +88,6 @@ void main() {
             vec3 diffColor = abs(color.rgb - imgColor.rgb);
             color.rgb = mix(color.rgb, diffColor, u_img_tex_amount);
         }
-        // --- NEW BLEND MODES END ---
     }
 
     // 3. PROCEDURAL GROOVES

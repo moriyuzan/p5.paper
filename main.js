@@ -4,7 +4,7 @@ let drawBuffer;
 let paper;
 
 function setup() {
-  createCanvas(1600, 1200);
+  createCanvas(1200, 1600);
   drawBuffer = createGraphics(width, height);
   drawBuffer.background('#f4f1ea');
 
