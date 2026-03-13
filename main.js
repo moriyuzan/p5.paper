@@ -1,4 +1,4 @@
-import p5Paper from './src/index.js';
+import p5Paper from './dist/p5.paper.es.js';
 
 let drawBuffer;
 let paper;

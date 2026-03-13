@@ -36,7 +36,7 @@ class p5Paper {
       this.paperShader.setUniform('u_has_image_tex', false);
     }
 
-    this.fxBuffer.rect(0, 0, this.width, this.height);
+    this.fxBuffer.rect(-this.width / 2, -this.height / 2, this.width, this.height);
     return this.fxBuffer;
   }
 }
